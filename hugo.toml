@@ -1,5 +1,5 @@
 baseURL = "https://clockout-early.github.io/"
-title = "칼퇴를 위한 자동화"
+title = "칼퇴를 위한 AI자동화"
 
 defaultContentLanguage = "ko"
 defaultContentLanguageInSubdir = true   # /ko/, /en/ 로 나눠서 발행
@@ -31,11 +31,11 @@ summaryLength = 70
   [languages.ko]
     label = "한국어"
     weight = 1
-    title = "칼퇴를 위한 자동화"
+    title = "칼퇴를 위한 AI자동화"
     contentDir = "content/ko"
     [languages.ko.params]
       description = "같은 일을 두 번 하기 귀찮아서 자동화하는 엔지니어의 AI 업무자동화 실전기"
-      introTitle = "칼퇴를 위한 자동화"
+      introTitle = "칼퇴를 위한 AI자동화"
       introText = "같은 일을 두 번 하기 귀찮아서 자동화하는 엔지니어, 레이지엔지(Lazy eNGineer)의 AI 업무자동화 실전기입니다. 개발자가 아니어도 따라 할 수 있게, 실제로 시간을 줄인 자동화를 매주 하나씩 기록합니다."
     [[languages.ko.menus.main]]
       name = "글"
