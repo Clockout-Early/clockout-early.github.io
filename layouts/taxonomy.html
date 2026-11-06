@@ -1,0 +1,10 @@
+{{ define "main" }}
+<h1 class="page-title">{{ .Title }}</h1>
+<ul class="terms">
+  {{- range .Pages }}
+  <li><a href="{{ .RelPermalink }}">#{{ .LinkTitle }}</a> <span class="count">{{ len .Pages }}</span></li>
+  {{- else }}
+  <li class="empty">{{ i18n "noTags" }}</li>
+  {{- end }}
+</ul>
+{{ end }}

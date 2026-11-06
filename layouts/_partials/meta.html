@@ -1,0 +1,3 @@
+<time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+{{- with .Params.savedTime }} · <span class="saved">⏱ {{ . }}</span>{{ end }}
+· {{ i18n "readingTime" .ReadingTime }}

@@ -1,0 +1,18 @@
+[noPosts]
+other = "The first post is on its way."
+
+[readingTime]
+one = "{{ .Count }} min read"
+other = "{{ .Count }} min read"
+
+[toc]
+other = "Contents"
+
+[noTags]
+other = "No tags yet."
+
+[notFound]
+other = "Page not found."
+
+[goHome]
+other = "Back to home"

@@ -1,0 +1,13 @@
+{{ define "main" }}
+<section class="intro">
+  <h1>{{ site.Params.introTitle | default site.Title }}</h1>
+  <p>{{ site.Params.introText }}</p>
+</section>
+<section class="post-list">
+  {{- range (where site.RegularPages "Section" "posts").ByDate.Reverse }}
+  {{ partial "post-item.html" . }}
+  {{- else }}
+  <p class="empty">{{ i18n "noPosts" }}</p>
+  {{- end }}
+</section>
+{{ end }}

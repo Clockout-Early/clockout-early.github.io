@@ -1,0 +1,17 @@
+[noPosts]
+other = "첫 글을 준비하고 있어요."
+
+[readingTime]
+other = "{{ .Count }}분 읽기"
+
+[toc]
+other = "목차"
+
+[noTags]
+other = "아직 태그가 없어요."
+
+[notFound]
+other = "페이지를 찾을 수 없어요."
+
+[goHome]
+other = "처음으로"

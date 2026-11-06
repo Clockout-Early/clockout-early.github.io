@@ -1,0 +1,73 @@
+baseURL = "https://clockout-early.github.io/"
+title = "칼퇴 자동화"
+
+defaultContentLanguage = "ko"
+defaultContentLanguageInSubdir = true   # /ko/, /en/ 로 나눠서 발행
+hasCJKLanguage = true                    # 한국어 읽기 시간·글자 수 계산
+enableRobotsTXT = true
+summaryLength = 70
+
+[pagination]
+  pagerSize = 10
+
+[outputs]
+  home = ["HTML", "RSS"]
+
+[taxonomies]
+  tag = "tags"
+
+[markup.highlight]
+  style = "github-dark"
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+
+[params]
+  author = "Lazy eNGineer"
+  github = "https://github.com/Clockout-Early"
+
+[languages]
+  [languages.ko]
+    label = "한국어"
+    weight = 1
+    title = "칼퇴 자동화"
+    contentDir = "content/ko"
+    [languages.ko.params]
+      description = "같은 일을 두 번 하기 귀찮아서 자동화하는 엔지니어의 AI 업무자동화 실전기"
+      introTitle = "칼퇴 자동화"
+      introText = "같은 일을 두 번 하기 귀찮아서 자동화하는 엔지니어, 레이지엔지(Lazy eNGineer)의 AI 업무자동화 실전기입니다. 개발자가 아니어도 따라 할 수 있게, 실제로 시간을 줄인 자동화를 매주 하나씩 기록합니다."
+    [[languages.ko.menus.main]]
+      name = "글"
+      pageRef = "/posts"
+      weight = 10
+    [[languages.ko.menus.main]]
+      name = "태그"
+      pageRef = "/tags"
+      weight = 20
+    [[languages.ko.menus.main]]
+      name = "소개"
+      pageRef = "/about"
+      weight = 30
+
+  [languages.en]
+    label = "English"
+    weight = 2
+    title = "Clock Out Early"
+    contentDir = "content/en"
+    [languages.en.params]
+      description = "Too lazy to do it twice, so I automate it. Real-world AI work automation from a field engineer in Korea."
+      introTitle = "Clock Out Early"
+      introText = "Too lazy to do it twice, so I automate it. Real-world AI work automation from a field engineer in Korea — one time-saving automation every week, written so non-developers can follow along."
+    [[languages.en.menus.main]]
+      name = "Posts"
+      pageRef = "/posts"
+      weight = 10
+    [[languages.en.menus.main]]
+      name = "Tags"
+      pageRef = "/tags"
+      weight = 20
+    [[languages.en.menus.main]]
+      name = "About"
+      pageRef = "/about"
+      weight = 30

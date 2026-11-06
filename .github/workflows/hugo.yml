@@ -1,0 +1,66 @@
+# main 브랜치에 push하면 Hugo로 사이트를 빌드해서 GitHub Pages에 자동 발행한다.
+name: Deploy Hugo site to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.169.0   # 내 PC의 Hugo 버전과 맞춘다
+    steps:
+      - name: Install Hugo
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb \
+            https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb
+          sudo dpkg -i ${{ runner.temp }}/hugo.deb
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Build
+        env:
+          HUGO_ENVIRONMENT: production
+          TZ: Asia/Seoul
+        run: |
+          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          # GitHub Pages는 루트의 404.html을 쓰므로 한국어 404를 복사해 둔다
+          cp public/ko/404.html public/404.html
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

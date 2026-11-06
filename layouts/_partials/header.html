@@ -1,0 +1,15 @@
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
+    <nav class="nav">
+      {{- range site.Menus.main }}
+      <a href="{{ .URL }}">{{ .Name }}</a>
+      {{- end }}
+      {{- $others := .Translations }}
+      {{- if not $others }}{{ $others = site.Home.Translations }}{{ end }}
+      {{- range $others }}
+      <a class="lang" href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}">{{ .Language.Label }}</a>
+      {{- end }}
+    </nav>
+  </div>
+</header>
